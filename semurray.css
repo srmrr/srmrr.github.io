@@ -1,0 +1,519 @@
+/* Design by Sarah E. Murray. */
+/* Thanks to http://alistapart.com/articles/taminglists/ for list/menu help. */
+/* Colors: #B0C4DE (main content), #3B6AA0 (right nav), #191970 (text), plus #FFFFFF (white)*/
+
+
+/* body */
+
+body {
+	color: #FFFFFF;
+	background-color: #FFFFFF;
+	text-align: center;
+	font-size: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	}
+	
+
+/* headers */
+
+h1 {
+	color: #3B6AA0; 
+	text-align: left;
+	margin: 0px 0px 5px 0px;
+	padding: 0px;
+	font-size: 24px;
+	font-weight: 900;
+	letter-spacing: 4px;
+	}
+
+	
+h2 {
+	color: #191970;
+	text-align: left;
+	margin: 0px 0px 5px 0px;
+	padding: 0px;
+        font-size: 12px;
+        font-weight: 300;
+	letter-spacing: 2px;	
+	}
+
+h2 a {
+		color: #3B6AA0; 
+        font-size: 14px;
+        font-weight: 100;	
+	}
+
+h2 a:hover {color:#191970;}
+	
+h3 {
+	color: #191970;
+	text-align: left;
+	margin: 0px 0px 5px 10px;
+	padding: 0px;
+        font-size: 10px;
+        font-weight: 500;
+	letter-spacing: 1px;	
+	}
+
+h5 {
+        color: #191970;
+        text-align: center;
+        margin: 0px 0px 5px 0px;
+        padding: 0px;
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: 4px;
+        }
+
+
+/* paragraphs */
+
+p {
+	color: #191970;
+	text-align: justify;
+	padding: 0px;
+	margin: 0px;
+        font-size: 12px;
+        font-weight: 500;
+	}
+
+p.indent {
+	margin: 0px 10px 0px 50px;
+	}
+
+p.line { 
+	color: #FFFFFF;
+	margin: 0px;
+	text-align: left;
+        font-size: 16px;
+        font-weight: 600;
+	font-style: italic;
+	border-bottom-style: dotted; 
+	border-bottom-color: ffffff; 
+	border-bottom-width: 1px; 
+	}
+
+p.linew { 
+	color: #FFFFFF;
+	text-align: left;
+        font-size: 16px;
+        font-weight: 600;
+	font-style: italic;
+	border-bottom-style: dotted; 
+	border-bottom-color: ffffff; 
+	border-bottom-width: 1px; 
+	}
+
+p.ref {
+	color: #191970;
+	text-align: justify;
+	text-indent: -20px;
+	padding: 2px 0px 0px 20px;
+	margin: 0px 0px 0px 0px;
+        font-size: 12px;
+        font-weight: 500;
+	}
+
+p.refs {
+	color: #191970;
+	text-align: justify;
+	text-indent: -20px;
+	padding: 2px 10px 0px 20px;
+	margin: 0px 0px 0px 50px;
+        font-size: 12px;
+        font-weight: 500;
+	}
+
+p.title {
+	color: #3B6AA0;
+	margin: 0px 0px 10px 0px;
+	padding: 0px;
+	font-size: 20px;
+	font-weight: 900px;
+	text-align: center;
+        letter-spacing: 1px;
+	}
+
+p.title-nav {
+	color: #3B6AA0;
+	text-align: center;
+	margin: 0px 0px 10px 0px;
+	padding: 0px;
+        font-size:12px;
+        font-weight:500;
+	}
+
+p.infow {
+	color: #FFFFFF;
+        font-size: 14px;
+        font-weight: 500;
+	}
+	
+p.head {
+	color: #FFFFFF;
+	text-align: left;
+	margin: 10px 0px 0px 20px;
+	padding: 0px;
+        font-size: 14px;
+        font-weight: 500;
+	}
+
+.p {
+	color: #191970;
+	text-align: justify;
+	padding: 0px;
+        font-size: 12px;
+        font-weight: 500;
+	text-decoration: underline;
+	}
+
+.ps {
+	color: #191970;
+	text-align: justify;
+	padding: 0px;
+        font-size: 10px;
+        font-weight: 500;
+	text-decoration: underline;
+	}
+
+p.right {
+	color: #FFFFFF;
+	text-align: right;
+	margin: -15px 0px 0px 0px;
+	padding: 0px;
+	}
+
+p.more {
+	color: #FFFFFF;
+	text-align: right;
+	margin: 0px 0px 0px 0px;
+	padding: 0px;
+	}
+	
+
+/* links */
+
+a { 
+	color: #191970;
+	font-size: 16px;
+	font-weight: bold;
+	text-decoration: none;
+	}
+
+a:visited {color: #191970;}
+a:hover {color: #FFFFFF;}
+
+a.line {
+	color: #FFFFFF;
+        font-size: 16px;
+        font-weight: 600;
+	text-decoration: none;
+	padding-right: 10px;
+	}
+
+a.line:hover {color: #191970;}
+
+a.head {
+	color: #FFFFFF;
+	text-align: left;
+	margin: 10px 0px 0px 20px;
+	padding: 0px;
+        font-size: 14px;
+        font-weight: 600;
+	font-style: italic;
+	}
+
+a.head:visited {color: #FFFFFF;}
+a.head:hover {color: #191970;}
+
+a.four {
+        color: #FFFFFF;
+        text-align: right;
+        margin: 0px;
+        padding: 0px;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0px;
+	}
+
+a.four:hover {color:#191970;}
+a.four:visited {color:#FFFFFF;}
+
+a.linew {
+	color: #FFFFFF;
+        font-size: 14px;
+        font-weight: 500;
+	}
+
+a.linew:visited {color:#FFFFFF;}
+a.linew:hover {color: #191970;}
+
+a.lineb {
+	color: #191970;
+        font-size: 14px;
+        font-weight: 500;
+	}
+
+a.lineb:visited {color:#191970;}
+a.lineb:hover {color: #FFFFFF;}
+
+a.more {
+		text-align: right;
+		color: #FFFFFF;
+        font-size: 12px;
+        font-weight: 500;
+	}
+
+a.linew:visited {color:#FFFFFF;}
+a.linew:hover {color: #000066;}
+
+a.infow {
+	color: #FFFFFF;
+        font-size: 14px;
+        font-weight: 500;
+	}
+
+a.infow:visited {color:#FFFFFF;}
+a.infow:hover {color: #191970;}
+
+a.right {
+	color: #FFFFFF;
+        font-size: 16px;
+        font-weight: 600;
+	}
+
+a.right:visited {color:#FFFFFF;}
+a.right:hover {color:#191970;}
+
+a.w {
+        font-size: 12px;
+        font-weight: 500;
+		text-decoration: underline;
+	}
+
+
+/* misc */
+
+span.w {
+	color: #FFFFFF;
+        font-size: 12px;
+        font-weight: 500;
+	}
+
+span.p a{
+        font-size: 12px;
+        font-weight: normal;
+	}
+	
+img {
+	border: none;
+	}
+
+table {
+	width: 98%;
+	color:#191970;
+	text-align:justify;
+	padding:0px;
+        font-size:12px;
+        font-weight:500;
+	}
+
+center {
+	text-align: center;
+	}	
+
+ul.links {
+	color: #FFFFFF;
+        font-size: 14px;
+        font-weight: 500;
+	text-align: left;
+	list-style: none;
+	margin: 10px 10px 10px 50px;
+	padding: 0px;
+	}
+
+ul.indent {
+	text-align: left;
+	list-style: none;
+	margin: 10px 10px 10px 50px;
+	padding: 0px;
+        font-size:12px;
+        font-weight:500;
+	}
+
+
+/* divs */
+
+.content {
+	position:relative; 
+        margin-top:0px;
+	margin-right:170px;
+	border: none;
+	min-height:380px;
+	z-index:50;
+	color:#191970;
+	background-color:#B0C4DE;
+	padding:0px;
+	}
+
+.content2 {
+	position:relative; 
+	text-align: left;
+        margin-top:0px;
+	margin-right:270px;
+	border: none;
+	height:50px;
+	z-index:20;
+	color:FFFFFF;
+	background-color:#FFFFFF;
+	padding:10px;
+	}
+
+#overflow {
+	border: none;
+	height:auto;
+	overflow:auto;	
+	width: 97%;
+	padding: 10px;
+	margin:0px;
+	}
+
+#container {
+  	min-width:900px;
+  	max-width:980px;
+  	min-height:520px;
+	margin-top:30px;
+	margin-right:auto;
+	margin-left:auto;
+	border:1px dotted #B0C4DE;
+	padding:0px;
+	z-index:1;
+	background-color:#3B6AA0;
+	text-align:center;
+	}
+
+#right {
+	z-index:5;
+	float: right; 
+	width: 150px;
+	border: none;
+	background-color:#3B6AA0; /* original: #4682B4, good:  #BCD2EE;  A2B5CD 3B6AA0 4682B4*/
+	text-align: right;
+	margin: 0px;
+	padding: 10px;
+	min-height: 500px;
+	font-family: helvetica, sans-serif;
+	}
+
+#pic {
+	text-align: right;
+	padding: 0px;
+	margin: 0px 0px 5px 0px;
+	width: 100%;
+	}
+
+#menu {
+	text-align: right;
+	border: none;
+	color: #FFFFFF;
+	margin: 10px 0px 65px 0px;
+	padding: 0px;
+	width: 100%;
+	}
+
+#menu ul {
+	text-align: right;
+	list-style: none;
+	margin: 0px;
+	border: none;
+	padding: 0px;
+	}
+
+#menu li {
+	margin: 0px;
+	border: none;
+	padding: 0px;
+	}
+
+#menu li a {
+	display: block;
+	border-bottom: 1px dotted #B0C4DE;
+	border-left: 1px dotted #B0C4DE;
+	text-decoration: none;
+	padding: 3px 2px 0px 0px;
+	color: #B0C4DE;
+	margin: 0px 0px 0px 5px;
+	width: auto;
+	}
+
+#menu li a:hover {
+	color: #FFFFFF;
+	border-bottom: 1px dotted #FFFFFF;
+	border-left: 1px dotted #FFFFFF;
+	}
+
+#links {
+	position:relative; 
+        margin-top:0px;
+	margin-right:270px;
+	margin-bottom:0px;
+	text-align:left;
+	border: none;
+	height:40px;
+	z-index:15;
+	color:FFFFFF;
+	background-color:#FFFFFF;
+	padding: 20px 10px 10px 10px;
+	}
+
+div.row {
+  	clear: both;
+  	padding-top: 10px;
+	color: #191970;
+	text-align: justify;
+        font-size: 12px;
+        font-weight: 500;
+  	}
+
+div.row span.date {
+  	float: left;
+  	width: 100px;
+  	text-align: right;
+  	}
+
+div.row span.info {
+  	float: right;
+  	width: 82%;
+ 	text-align: justify;
+  	} 
+
+div.row span.datew {
+  	float: left;
+  	width: 100px;
+  	text-align: right;
+	color: #FFFFFF;
+        font-size: 14px;
+  	}
+
+div.row span.infow {
+  	float: left;
+  	width: 82%;
+	padding: 0px 5px 0px 5px;
+        font-size: 12px;
+ 	text-align: justify;
+  	} 
+
+div.row span.left {
+  	float: left;
+  	width: 45%;
+	margin-left:10px;
+  	text-align: justify;
+  	}
+
+div.row span.right {
+  	float: right;
+  	width: 45%;
+	margin-right:10px;
+ 	text-align: justify;
+  	} 
+
