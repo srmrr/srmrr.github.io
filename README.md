@@ -1,2 +1,2 @@
 
-Files for my personal webpage: https://srmrr.github.io/
+A repository for my personal website: https://srmrr.github.io/
