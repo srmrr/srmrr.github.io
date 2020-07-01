@@ -1,0 +1,300 @@
+% ------------ dissertation.tex  -- Rutgers GSNB Dissertation Template ------------------------------------------------------------
+% 
+% This template designed by Sarah Murray in 2010 to conform to the Graduate School - New Brunswick's Electronic Thesis and Dissertation Style Guide, as of 2010. The guide can be found on the GSNB's website: http://gsnb.rutgers.edu/guide.php3 . 
+%
+%
+% ------------ begin preamble -----------------------------------------------------------------------------------------
+\documentclass[12pt,oneside]{memoir}	%letterpaper is the default paper size, 
+% GSNB REQUIRED: 12pt sets 12pt font, and oneside formats the page as if only one side of the paper will be printed (same margins on all pages). these options are needed to meet the GSNB guidelines.  
+% personal: leqno puts equation numbers on the lefthand side of the page.  see memoir class documentation for all options. 
+%
+%memoir includes code to emulate several packages and uses a similar internal command to ensure that the packages are not loaded following some later \usepackage command. The names of the emulated packages are written to the file. As of 2009/11/17 v1.61803398c the emulated packages are: abstract, appendix, array, booktabs, ccaption, chngcntr, crop, dcolumn, delarray, enumerate, epigraph, ifmtarg, ifpdf, index, makeidx, moreverb, needspace, new- file, nextpage, pagenote, patchcmd, parskip, setspace, shortvrb, showidx, tabularx, titleref, tocbibind, tocloft, verbatim, and verse. As well as the emulated packages memoir pro- vides functions equivalent to those in the following packages, although the class does not prevent you from using them: fancyhdr, framed, geometry, sidecap, subfigure, and titlesec.
+%
+% ------------ packages and page style -----------------------------------------------------------------------------------------
+% 
+% GSNB REQUIRED -------------------------------------------------------------------------------------------------------------
+%
+% ----- header formatting  ---------------------------------------------------------
+% NO HEADERS ALLOWED BY GSNB -- PAGE NUMBER ONLY for main matter, centered in footer for front matter
+%
+% Quotation formatting -- "Quotations of four or more lines of prose should be single-spaced and indented five spaces from the left margin. No indentation on right." 
+\renewenvironment{quotation}%
+               {\list{}{\listparindent 1.5em%
+                        \rightmargin 0cm}%
+                \item[]%
+                        \SingleSpacing}%
+               {\endlist}
+% ----- set spacing above footnote  ----------------------------------------------------------------------------------------------------------
+\setlength{\skip\footins}{0.5in}
+%
+% ----- page formatting
+\setlrmarginsandblock{1.5in}{1in}{*}			%sets spine (1.5in) and edge (1in) margins
+\setulmarginsandblock{1in}{1in}{*} 			%sets upper and lower margins (1in each)
+\checkandfixthelayout					% makes all of the other settings work with above specified margins
+\DoubleSpacing						% True double spacing, looks horrible, but required!
+%
+%
+%
+% PERSONAL -------------------------------------------------------------------------------------------------------------
+%
+% ----- fix to get index to include citations   ---------------------------------------------------------
+% "Natbib does its cite indexing differently depending on whether or not it thinks that the index package has been used. The above code is meant to cancel out the claimed index emulation, so natbib won't think that the index package has been used." http://newsgroups.derkeiler.com/Archive/Comp/comp.text.tex/2006-01/msg01419.html
+\makeatletter 
+\providecommand*{\DisemulatePackage}[1]{% 
+\@namelet{ver@#1.\@pkgextension}\relax} 
+\makeatother 
+\DisemulatePackage{index}
+\usepackage{natbib}
+ \citeindextrue			% Will index citations
+ %
+ %---------------------------- formatting the in-text citations  ------------------------------------------------------------------------ 
+ % Parameters: citation mode, braces, between citations, between author and year, between years, and text before note. 
+ % Defaults are authoryear, round, comma, aysep={;}, yysep={,}, notesep={, }.
+ % See documentation for other options (there are many)
+ % You need only specify desired deviations from the defaults. 
+ % Not specified by the Rutgers Dissertation Style Guide -- you can change this to whatever you want.
+ \setcitestyle{semicolon,aysep={},yysep={,},notesep={; }}
+% 
+% Personal packages
+%
+%\usepackage[intoc,noprefix]{nomencl}			% An index of symbols
+%\usepackage{makeidx}						% for making indexes, must typset index (cmd+shift+i in TeXShop) -- emulated in memoir!
+\usepackage[nodayofweek]{datetime}				% for formating date and time
+%\usepackage[colorlinks,citecolor=blue,linkcolor=blue,urlcolor=blue,pagebackref=false,pdfauthor={Sarah E. Murray},pdftex,bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=2]{hyperref}	%clickable links, likes to be last package called in the preamble. Bonus: "With the hyperref package, the table of contents is often added as a list of bookmarks thus providing a nice navigation for the user" (Memoir manual, p. 173).
+\usepackage[colorlinks,citecolor=blue,linkcolor=blue,urlcolor=blue,pagebackref=false,pdfauthor={Sarah E. Murray},pdftex,bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=2]{hyperref}	%black
+\usepackage{minitoc}				% allows mini TOCs for each chapter, likes to be after hyperref
+%
+% ------------ commands -----------------------------------------------------------------------------------------
+\makeindex							% Required to make the index
+%\makenomenclature						% Required to make the list of symbols
+%
+% ----- get memoir class to number up to subsubsections ---------------------------------------------------------
+\maxsecnumdepth{subsubsection} 
+\setsecnumdepth{subsubsection} 
+\maxtocdepth{subsubsection} 
+\settocdepth{subsubsection}
+%\mtcsetdepth{minitoc}{1}				%  prints minitoc to depth of 1 (section)
+%
+% ----- Index formatting  ---------------------------------------------------------
+%\newcommand{\idxmark}[1]{#1\markboth{#1}{#1}}
+%\makepagestyle{index}
+%\makeheadrule{index}{\textwidth}{\normalrulethickness} 
+%\makeevenhead{index}{\rightmark}{}{\leftmark ~\thepage} 
+%\makeoddhead{index}{\rightmark}{}{\leftmark \thepage} 
+%
+% ----- List of abbreviations formatting (nomencl)  ---------------------------------------------------------
+%\renewcommand{\nomname}{List of Abbreviations}
+%\RequirePackage{ifthen} 
+%\renewcommand{\nomgroup}[1]{%
+%\ifthenelse{\equal{#1}{G}}{\item[\textbf{Type One}]}{% 
+%\ifthenelse{\equal{#1}{O}}{\item[\textbf{Type Two}]}{}}}
+% To get List of Abbreviations to show up, you must run the following in the directory containing the dissertation files
+% 	makeindex dissertation.nlo -s nomencl.ist -o dissertation.nls
+% You must first typset LaTeX twice. See nomencl documentation
+%
+% ------------ definitions -----------------------------------------------------------------------------------------
+\newdateformat{copyyear}{\THEYEAR}
+% 
+% -------------- print type of thing before the number ----------------------------------------------------------
+\renewcommand*{\cftchaptername}{Chapter\space}			% Adds word 'Chapter' before chapter number
+\renewcommand*{\cftappendixname}{Appendix\space}		% Adds word `Appendix' before appendix letter
+\renewcommand*{\cfttablename}{Table\space}				% Adds word `Table' before appendix letter
+\renewcommand*{\cftfigurename}{Fig.\space}				% Adds abbreviation `Fig.' before appendix letter
+\renewcommand*{\cftpartname}{Part\space}				% Adds word`Part' before part number
+%
+% ------------ file information -----------------------------------------------------------------------------------------
+\pdfinfo
+{
+  /Title       (Title)
+  /Creator     (Creator)
+  /Author      (Author)
+}
+%
+% ------------ header information -----------------------------------------------------------------------------------------
+\title{Thesis Title}
+\author{Thesis Author}
+% ------------ end preamble ------------------------------------------------------------------------------------------------
+%  ------------------------------------------------------------------------------------------------------------------------------------
+%
+%
+%  ------------------------------------------------------------------------------------------------------------------------------------
+% ------------ begin main document --------------------------------------------------------------------------------------
+
+\begin{document}
+\dominitoc				% Will allow mini-table of contents at the beginning of each chapter.
+% FRONTMATTER
+\frontmatter			% Designates front matter of book, formats numbers separately  -- GSNB REQUIRED
+% ------------ copyright page --------------------------------------------------------------------------------------
+% GSNB REQUIRED : Their comments:  Include this page to inform readers that you acknowledge your legal rights and that you are the copyright holder. Must be included if you chose to register your copyright. For details, see: Copyright Law and Graduate Research: New Media, New Rights, and Your New Dissertation, by Kenneth D. Crews, Proquest, 2000. 
+\begin{center}
+\thispagestyle{empty}
+\vspace*{3.5in}
+\copyright~\copyyear\today\\[12pt]		% UNCOMMENT FOR FINAL
+%Draft date: \today\\[12pt]				% FOR DRAFT -- COMMENT FOR FINAL DRAFT
+\theauthor\\[12pt]					% FOR FINAL
+ALL RIGHTS RESERVED				% UNCOMMENT FOR FINAL
+\end{center}
+%
+% ------------ title page --------------------------------------------------------------------------------------
+% GSNB REQUIRED : Their comments: Title should be a brief but meaningful and accurate description of the content of your research.
+%Avoid oblique references; substitute words for formulae, symbols, superscripts, Greek letters, etc.
+%Your full, legal name, as it appears on registrar's records, must be on the title page.
+%Provide the appropriate number of lines needed for the approval signatures.
+%The title page of the original copy must contain the original signatures of the research director and all committee members in BLACK INK.
+%Center and double space all text and lines.
+%The month and year entered at the foot of the page must be October, January, or May, the date of the degree is to be conferred, not the date of the defense.
+% no page number
+\newpage
+\vspace*{24pt}
+\begin{center}
+\thispagestyle{empty}
+\MakeUppercase{\thetitle}\\[12pt]
+by\\[12pt]
+\MakeUppercase{\theauthor}\\[36pt]
+A dissertation submitted to the\\
+Graduate School-New Brunswick\\
+Rutgers, The State University of New Jersey\\
+in partial fulfillment of the requirements\\
+for the degree of\\
+Doctor of Philosophy\\
+Graduate Program in [Linguistics]\\
+written under the direction of\\
+~[Thesis Committee Chair] \\
+and approved by\\[12pt]
+\underline{\hspace{180pt}}\\[12pt]
+\underline{\hspace{180pt}}\\[12pt]
+\underline{\hspace{180pt}}\\[12pt]
+\underline{\hspace{180pt}}\\[24pt]
+New Brunswick, New Jersey\\
+October 2010
+\end{center}
+%
+% ------------ abstract --------------------------------------------------------------------------------------
+%  GSNB REQUIRED. Their comments: Provides a succinct summary of the dissertation, summarizing clearly the problem or problems examined, the methods employed, and the major findings.
+%The abstract must be in English and may not exceed 2,450 characters (350 words).
+\newpage
+\setcounter{page}{2}
+\pagestyle{plain}
+\mtcaddchapter[Abstract]	% Needed to add abstract to the TOC
+\begin{center}	
+ABSTRACT OF THE DISSERTATION\\[24pt]
+{\Large\em \thetitle}\\[12pt]
+by \MakeUppercase{\theauthor}\\[36pt]
+Dissertation Director:\\
+~[Thesis Committee Chair] 
+\end{center}
+\vspace{24pt}
+
+\noindent Abstract here
+
+
+% GSNB REQUIRED: The following elements, if included, must be in this order. Each must start on a new page, and NO blank pages in-between.  
+%
+% I have all content called by an include command to make this file a manageable size. A file named, e.g., "diss-ack.tex" can be included with the command " \include{diss-ack}". Basically, this command imports the code and interprets it in the position of the \include command. Thus, no preamble or document commands are needed in the included file -- in fact, they will mess things up. 
+%
+% ------------ dedication  --------------------------------------------------------------------------------------
+%\include{diss-ded}
+% ------------ acknowledgements  --------------------------------------------------------------------------------------
+\include{diss-ack}
+% ------------ toc --------------------------------------------------------------------------------------
+\tableofcontents
+\mtcaddchapter						% command needed for compatibility with minitoc package (without, numbering of mititocs will be off)
+
+% ------------ list of tables --------------------------------------------------------------------------------------
+\newpage
+\listoftables
+\mtcaddchapter							% command needed for compatibility with minitoc package
+
+% ------------ list of illustrations --------------------------------------------------------------------------------------
+\newpage
+\listoffigures							% personal: I use the name "figure" instead of "illustration"
+\mtcaddchapter							% command needed for compatibility with minitoc package
+
+% ------------ abbreviations -- personal addidion  --------------------------------------------------------------------------------------
+%\printnomenclature[60pt]
+%\mtcaddchapter							% command needed for compatibility with minitoc package
+
+%Personal:  ------------ fix for mini TOC bold section formatting, placed here so as not to affect the main TOC -----------------------
+\renewcommand{\cftsectionfont}{\bfseries} 
+\renewcommand{\cftsectionleader}{\bfseries\cftdotfill{\cftdotsep}} 
+\renewcommand{\cftsectionpagefont}{\bfseries}
+
+% ------------ begin chapters --------------------------------------------------------------------------------------
+%
+%
+% MAIN MATTER
+\mainmatter				% Designates main matter of book, formats numbers separately  -- GSNB REQUIRED
+% In memoir class, commands like \chapter and \part call a special \thispagestyle command to make their formatting different from the rest of the text (see memoir manual, p. 116 - 117). For \chapter and \part, this it the pagestyle "plain" which puts the page number centered in the footer. This looks great. Unfortunately, the GSNB requires that EVERY SINGLE page of the text (i.e., everything but the preliminary pages, which are numbered with roman numerals) has the page number in the upper right hand corner. "Arabic numerals, upper right-hand corner, exactly 1 inch from the right-hand edge of the page and 1/2 inch from the top. Begin with the number one (1) on the first page of text and number consecutively."
+\aliaspagestyle{chapter}{simple}			% overrides memoir class's \chapter specification from plain to simple
+\aliaspagestyle{part}{simple}				% overrides memoir class's \chapter specification from plain to simple
+\renewcommand{\arraystretch}{0.65}	% sets tables to less than double spacing -- personal preference 
+\pagestyle{simple}						% sets pagestyle for mainmatter, with headings,`Simple' gives just page number in upper right corner. this is all that is allowed by the GSNB
+\include{chapter-1}						% Introduction
+% Part one, if you don't wan't parts, just comment those lines out
+\renewcommand{\afterpartskip}{\vfil \vskip2\onelineskip}	% Allow text on Part page
+\part{Title of Part One}
+Text on this page if you want
+\include{diss-one}	
+\include{diss-two}	
+% Part two
+\part{Title of Part Two}
+%Text on this page if you want
+\include{diss-three}		
+\include{diss-four}		
+% Next three commands fix PDF bookmarking -- pull conclusion out from under Part II if  using Parts
+\makeatletter 
+\renewcommand*{\toclevel@chapter}{-1}
+\makeatother
+%
+\include{diss-conc}			% conclusion
+% ------------ end chapters --------------------------------------------------------------------------------------
+%
+% ------------ appendices --------------------------------------------------------------------------------------
+% Next three commands fix PDF bookmarking -- pull appendices out from under conclusion
+\makeatletter 
+\renewcommand*{\toclevel@appendix}{-1}
+\makeatother
+%
+\appendix
+\include{diss-proofs}			% Proofs
+% 
+% 
+%
+% BACK MATTER
+\backmatter
+% ------------ references and index --------------------------------------------------------------------------------------
+% 
+\SingleSpacing 		% GSNB REQUIRED. to get references single spaced. If you want to use endnotes, call them after this command so they are single spaced too. 
+\bibliographystyle{ling-sc}
+\bibliography{semurray}
+\adjustmtc								% command needed for compatibility with minitoc package
+\clearpage 
+\pagestyle{simple}						
+\printindex
+\mtcfixindex[chapter]						% command needed for compatibility with minitoc package
+%  \addcontentsline{toc}{chapter}{Index}		don't use -- messes with minitoc
+
+  
+% ------------ curriculum vitae -------------------------------------------------------------------------------------- 
+%  GSNB REQUIRED. A brief vita, in outline form, containing the following information in chronological order: colleges attended, degrees earned, principal occupation, and publications only. Use full legal name. List all information chronologically. Last numbered arabic page. 
+\newpage
+\phantomsection						% Needed for PDF bookmark to correct position -- see hyperref manual
+\mtcaddchapter[Curriculum Vitae] 			% Needed to add CV to TOC
+\thispagestyle{simple}					% Formats just a page number in the upper right
+\begin{center}
+{\Large Curriculum Vitae}\\[9pt]
+{\large \theauthor}\\[24pt]
+\end{center}
+
+
+\renewcommand{\arraystretch}{1}
+\noindent	\begin{tabularx}{1.0\textwidth}{ r  X }
+		\multicolumn{2}{ l }{\textsc{Education}}\\[6pt]
+%		Dates 		& Colleges attended with dates, subjects pursued, and degrees earned. \\
+		2004--2010 	& Ph.D. in Linguistics with a Certificate in Cognitive Science \newline  Rutgers, The State University of New Jersey, New Brunswick, NJ\\[3pt]
+		\end{tabularx}
+		
+		
+
+
+\end{document}
