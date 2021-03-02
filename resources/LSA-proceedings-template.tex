@@ -1,6 +1,7 @@
 % ------------ LSA-proceedings-template.tex  -- LSA proceedings template ---------------------------------------------------------------------------
 % created by Sarah E. Murray, 24 April 2017 based on the LSA's stylesheet
 % http://journals.linguisticsociety.org/proceedings/index.php/PLSA/pages/view/instructions
+% Updated 2 March 2021 to allow line breaks in urls -- added line 16 & 17 and modified line 170
 %
 %
 % ------------ begin preamble -----------------------------------------------------------------------------------------
@@ -12,6 +13,8 @@
 \usepackage{natbib}	
  	\setcitestyle{semicolon,aysep={},yysep={,},notesep={; }}
 \usepackage{fullpage} 
+\usepackage[hyphens]{url}
+	\urlstyle{same}
 \usepackage[compact]{titlesec}
 	\titleformat{\section}[runin]{\normalfont\bfseries}{\thesection.}{.5em}{}[.]
 	\titleformat{\subsection}[runin]{\normalfont\scshape}{\thesubsection}{.5em}{}[.]
@@ -164,8 +167,8 @@ Drawings of sentence structures and the like can either be placed next to a numb
 %See: http://info.semprag.org 
 %and get the bst at: https://raw.githubusercontent.com/semprag/tex/master/sp.bst 
 %If using the sp.bst, the following command turns your DOIs into links
-\newcommand{\doi}[1]{\href{http://dx.doi.org/#1}{http://dx.doi.org/#1}}	%modified from sp.cls
-\bibliography{main-share}			% change to your bib file
+\newcommand{\doi}[1]{\url{http://dx.doi.org/#1}}	%modified from sp.cls, changed to \url from \href
+\bibliography{yours}			% your bib file
 
 
 \end{document}
